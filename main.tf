@@ -21,10 +21,7 @@ resource "azurerm_resource_group" "example" {
 }
 
 output "machine_name" {
-  value = [
-    for vm in azurerm_virtual_machine.main :
-    upper(vm.name)
-  ]
+  value = [for vm in azurerm_virtual_machine.main : upper(vm.name)]
 }
 
 variable "tags" {
