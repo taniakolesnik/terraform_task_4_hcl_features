@@ -50,12 +50,16 @@ resource "azurerm_network_security_group" "example" {
 }
 
 resource "azurerm_virtual_machine" "main" {
-  count                 = 2
-  name                  = "${var.prefix}-${count.index}-vm"
-  location              = azurerm_resource_group.example.location
-  resource_group_name   = azurerm_resource_group.example.name
-  network_interface_ids = [local.network_interface_ids[count.index]]
-  vm_size               = "Standard_DS1_v2"
+  count               = 2
+  name                = "${var.prefix}-${count.index}-vm"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+  network_interface_ids = [
+    azurerm_network_interface.main[
+      local.network_interface_names[count.index]
+    ].id
+  ]
+  vm_size = "Standard_DS1_v2"
 
   storage_image_reference {
     publisher = "Canonical"

@@ -7,9 +7,9 @@ locals {
 }
 
 locals {
-  network_interface_ids = [
+  network_interface_names = [
     for nic in azurerm_network_interface.main :
-    nic.id
+    nic.name
   ]
 }
 
