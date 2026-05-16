@@ -61,7 +61,7 @@ variable "security_rules" {
   default = {
     "storage1" = { "name" = "one-sg", "priority" = 1001, "direction" = "Inbound", "access" = "Allow", "protocol" = "Tcp", "source_port_range" = "*", "destination_port_range" = "22" },
     "storage2" = { "name" = "two-sg", "priority" = 1002, "direction" = "Inbound", "access" = "Allow", "protocol" = "Tcp", "source_port_range" = "*", "destination_port_range" = "22" },
-    "storage3" = { "name" = "three-sg", "priority" = 1003, "direction" = "Inbound", "access" = "Allow", "protocol" = "Tcp", "source_port_range" = "*", "destination_port_range" = "22" }
+    "storage3" = { "name" = "three-sg", "priority" = 1004, "direction" = "Inbound", "access" = "Allow", "protocol" = "Tcp", "source_port_range" = "*", "destination_port_range" = "22" }
   }
 }
 
